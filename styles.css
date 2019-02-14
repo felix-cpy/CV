@@ -1,0 +1,74 @@
+.jumbotron .Title{
+  display: inline-block;
+  width: 10rem;
+}
+
+.jumbotron #outer_block{
+  text-align: center;
+}
+
+.jumbotron #inner_block{
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  width: 50%;
+}
+
+.jumbotron>contactInfo{
+  margin-left: 0;
+}
+
+.Num{
+  white-space: nowrap;
+}
+
+.jumbotron p{
+  margin: auto 2px;
+}
+
+.email #eAddress{
+  display: inline-block;
+}
+
+.contactInfo img{
+  height: 18px;
+  width: 24px
+}
+
+@media screen and (min-width: 550px){
+  .PhoneNarrow{display: none;}
+  .PhoneWide{display: block;}
+}
+
+
+@media screen and (max-width: 550px) {
+
+  .jumbotron #outer_block{
+    text-align: left;
+  }
+  .jumbotron #inner_block{
+    width: 100%;
+  }
+  .PhoneNarrow{display: block;}
+  .PhoneWide{display: none;}
+}
+
+.navbarBtn{
+  border-color: white;
+}
+
+.clear{
+  clear:both;
+}
+
+h2{
+  display: inline-block;
+}
+
+.c100.small{
+  font-size: 3rem;
+}
+
+img, .fa{
+  margin-left: 0.5rem;
+}

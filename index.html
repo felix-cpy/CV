@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Felix's CV</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- rating circle css -->
+  <link rel="stylesheet" href="css-percentage-circle-master/css/circle.css">
+  <!-- fontawesome css -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- fontawesome css link for mainland china -->
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- bootstrap required css, js, and jquery -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid" id="nameAndContact">
+    <div class="jumbotron">
+      <div id="outer_block">
+
+        <!-- contact block content -->
+        <div id="inner_block">
+          <h1 id="font-weight-bold">Felix P. Chow</h1>
+          <br>
+
+          <!-- phone number and email set by jquery -->
+          <div class="contactInfo row">
+            <!-- phone number format for wide screen… -->
+            <div class="PhoneWide container">
+              <!-- hk  number row -->
+              <div class="row">
+                <div class="Title col-6 float-left">
+                  Mobile:<i class="fa fa-mobile fa-2x"></i>
+                </div>
+                <div class="Num col-6 float-right">
+                  <p class="hkNum"></p>
+                </div>
+              </div>
+              <!-- mainland china number row -->
+              <div class="row">
+                <div class="Title col-6 float-left">
+                  <!-- empty space -->
+                </div>
+                <div class="Num col-6 float-right">
+                  <p class="mainlandNum"></p>
+                </div>
+              </div>
+              <!-- email row -->
+              <div class="row">
+                <div class="Title col-6 float-left">
+                  Email:<i class="fa fa-envelope fa-lg"></i>
+                </div>
+                <div class="Num col-6 float-right">
+                  <p class="eAddress"></p>
+                </div>
+              </div>
+            </div>
+            <!-- narrow screeen contact format -->
+            <div class="PhoneNarrow container ">
+              <p>Mobile:<i class="fa fa-mobile fa-2x"></i></p>
+              <p class="hkNum"></p>
+              <p class="mainlandNum"></p>
+              <p>Email:<i class="fa fa-envelope fa-lg"></i></p>
+              <span class="eAddress">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="Narrow">
+      <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: #4BA37D;">
+        <button class="navbarBtn navbar-toggler" type="btn btn-lg" data-toggle="collapse" data-target="#navbarToggle">
+          <img src="img/list-circle-blue-512.png" width="32px" height="32px" />
+        </button>
+        <ul class="collapse nav navbar-nav navbar-collapse" id="navbarToggle">
+          <li class="nav-item"><a class="nav-link active" href="#Summary">Summary</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ProgExp">Programming Experiences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#OtherExp">Other Experiences</a></li>
+        </ul>
+      </nav>
+
+      <div id="Summary">
+        <h2>Summary</h2>
+        <a class="linkToTop" href="#nameAndContact"><i class="fa fa-angle-double-up fa-lg" href="#nameAndContact"></i></a>
+        <p>
+          Detail-oriented, passionate software engineer with two years of experience involving multitude of programming task. Always strives to improve the quality and efficiency of past and present work product. A background in numerical analysis
+          has provided me a solid analytical foundation to transition to software development.
+        </p>
+      </div>
+      <div id="Skills">
+        <h2>Skills</h2>
+        <a class="linkToTop" href="#nameAndContact"><i class="fa fa-angle-double-up fa-lg" href="#nameAndContact"></i></a>
+        <div class="clear container col-12">
+          <h4>Programming Languages</h4>
+          <ul id="skillsList">
+            <!-- skills inserted here by JavaScript -->
+          </ul>
+        </div>
+      </div>
+      <div id="Education">
+        <h2>Education</h2>
+        <a class="linkToTop" href="#nameAndContact"><i class="fa fa-angle-double-up fa-lg" href="#nameAndContact"></i></a>
+        <div class="EduHolder container col-12">
+          <!-- education background inserted here by javascript -->
+        </div>
+      </div>
+      <div id="ProgExp">
+        <h2>Programming Experiences</h2>
+        <a class="linkToTop" href="#nameAndContact"><i class="fa fa-angle-double-up fa-lg" href="#nameAndContact"></i></a>
+        <div class="container col-12" id="progExpHolder">
+          <!-- experiences inserted by JavaScript -->
+        </div>
+      </div>
+      <div id="OtherExp">
+        <h2>Other Experiences</h2>
+        <a class="linkToTop" href="#nameAndContact"><i class="fa fa-angle-double-up fa-lg" href="#nameAndContact"></i></a>
+        <div class="container col-12" id="ExpHolder">
+          <!-- experiences inserted by JavaScript -->
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js">
+
+    </script>
+</body>
+
+</html>
