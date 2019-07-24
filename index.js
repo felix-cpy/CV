@@ -1,15 +1,33 @@
+// write contact info using js
 $('.hkNum').append("<a href='tel:+852-5182-6543'>+852 5182-6543</a><img src='img/hkflag.png' alt='(Hong Kong)'> ")
-$('.mainlandNum').append("+86 13728741373 <img src='img/chinaflag.png' alt='(Mainland China)'>");
+$('.mainlandNum').append("<a href='tel: +86 13728741373'>+86 13728741373</a> <img src='img/chinaflag.png' alt='(Mainland China)'>");
 $('.eAddress').append('<a href="mailto: felix.cpy@gmail.com">felix.cpy@gmail.com</a>');
+
+// specify behavior of the nav section
+$('#linkDropDown').hide();
+$('#btnLinksToggle').on("click", function(){
+  if ($('#linkDropDown').css("display") == 'none') {
+    $('#linkDropDown').show();
+    $('nav').css("height", "10rem");
+  } else {
+    $('#linkDropDown').hide();
+    $('nav').css("height", "3rem");
+  }
+});
+$('.nav-link').on("click", function(){
+  $('#linkDropDown').hide();
+  $('nav').css("height", "3rem");
+});
+
 
 // write html using javascript to dynamically adapt to pages of different widths
 //skills
 // rating should be from 0 to 10
 function CreateSkillRatingEntry(skill, rating){
   var listItemStr = [
-    '<div class="row">',
-      '<div class="col-6 float-left">' + skill + '</div>',
-      '<div class="col-3 float-right">',
+    '<div style="height: 6rem;">',
+      '<div style="float: left; width: 50%; text-align: left;">' + skill + '</div>',
+      '<div style="float: right; width: 50%">',
           '<div class="cirRatings c100 p'+ rating+ '0 small orange">',
             '<span>' + rating + '/10</span>',
             '<div class="slice">',
@@ -18,15 +36,36 @@ function CreateSkillRatingEntry(skill, rating){
             '</div>',
           '</div>',
       '</div>',
+
     '</div>'
   ].join('\n');
   return listItemStr;
 }
-$('#skillsList').append("<li>"+CreateSkillRatingEntry('C#',8) +"</li>");
-$('#skillsList').append("<li>"+CreateSkillRatingEntry('Java',4) +"</li>");
-$('#skillsList').append("<li>"+CreateSkillRatingEntry('WebPage(Front End)',3)+"</li>");
-$('#skillsList').append("<li>"+CreateSkillRatingEntry('SQL',2)+"</li>");
-$('#skillsList').append("<li>"+CreateSkillRatingEntry('MATLAB/FORTRAN77',2)+"</li>");
+
+function CreateSkillRatingProgBar(skill, rating){
+  var listItemStr = [
+    '<div style="height: 2rem;">',
+      '<div style="float: left; width: 50%; text-align: left;">' + skill + '</div>',
+      '<div style="float: right; width: 50%">',
+          '<div style="width: 80%; height: 1rem; margin: 0.5rem auto; background-color: gray; border: 1px solid black; border-radius: 0.4rem">',
+            '<div style="width: '+ rating+ '0%; background-color: green; height: 100%; border-radius: 0.4rem;">',
+            '<span style="margin-left: 20%">' + rating + '/10</span>',
+            '</div>',
+          '</div>',
+      '</div>',
+    '</div>'
+  ].join('\n');
+  return listItemStr;
+}
+$('#skillsList').append(CreateSkillRatingEntry('C#',8) +'<hr>');
+$('#skillsList').append(CreateSkillRatingEntry('Java',4) +"<hr>");
+$('#skillsList').append(CreateSkillRatingEntry('WebPage(Front End)',5));
+//$('#skillsList').append(CreateSkillRatingEntry('SQL',3));
+$('#skillsListWide').append(CreateSkillRatingProgBar('C#',8) +'<hr>');
+$('#skillsListWide').append(CreateSkillRatingProgBar('Java',4) +"<hr>");
+$('#skillsListWide').append(CreateSkillRatingProgBar('WebPage(Front End)',5));
+//$('#skillsListWide').append(CreateSkillRatingProgBar('SQL',3));
+// $('#skillsList').append(CreateSkillRatingEntry('MATLAB/FORTRAN77',2));
 
 //Education history
 class EduHistory{
@@ -38,9 +77,9 @@ class EduHistory{
   }
   CreateHTML(){
     var retStr =['<div >',
-    '<h4 class="float-left">' + this.schoolName + '</h4>',
-        '<span class="float-right">('+this.startDate+" - "+this.endDate+')</span>',
-      '<p style="clear: both">'+this.major+'</p>',
+    '<h4 style="display: inline-block; width: 60%; ">' + this.schoolName + '</h4>',
+        '<span style="display: inline-block; width: 38%; text-align: right;">('+this.startDate+" - "+this.endDate+')</span>',
+      '<p >'+this.major+'</p>',
       '</div>'].join('\n');
     return retStr;
   }
@@ -50,20 +89,6 @@ var schools = [new EduHistory('UC San Diego', 2003, 2005, 'MS Mechanical Enginee
 schools.push(new EduHistory('UC Berkeley',2001,2003,'BS Mechanical Engineering <i class="fa fa-cogs fa-lg" aria-hidden="true"></i>'));
 schools.push(new EduHistory('UC Santa Cruz', 1998, 2001, 'BA Philosophy' +
 '<img src="img/greek.png" style="width: 24px; height=24px;" data-toggle="popover" data-trigger="hover">'));
-
-$(function() {
-  $('[data-toggle="popover"]').popover(
-    {
-      placement: 'bottom',
-      html: true,
-      delay: {hide: 1000},
-      content: function(){
-      return 'Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" >CC 3.0 BY</a>';
-    }}
-  );
-})
-
-console.log(schools);
 for (var i = 0; i < schools.length; i++) {
     $('.EduHolder').append(schools[i].CreateHTML());
 }
@@ -84,15 +109,15 @@ class Experience{
   }
 
   CreateHTML(){
-    var retStr = ['<div>'];
-    retStr.push('<h4><u>' + this.jobTitle + '</u></h4>');
-    retStr.push('<div class="row">');
-    retStr.push('<h6 class="col-6 float-left">'
+    var retStr = ['<div style="margin: 5px auto;">'];
+    retStr.push('<h3><u>' + this.jobTitle + '</u></h3>');
+    retStr.push('<div>')
+    retStr.push('<div style="display: inline-block; width: 70%"><h4 >'
                 + this.companyName
-                + '</h6>');
-    retStr.push('<span class="col-6 float-right" style="text-align: right;">('
+                + '</h4></div>');
+    retStr.push('<div  style="display: inline-block; text-align: right; width: 28%">('
                 + this.start + ' - '+ this.end
-                + ')</span>');
+                + ')</div>');
     retStr.push('</div>');
     retStr.push('<p style="clear: both">' + this.summary + '</p>');
     retStr.push('<ul>');
@@ -111,6 +136,7 @@ class Experience{
   }
 }
 
+// write both programming experiences
 var tmpExpStore = new Experience('Software Engineer',
 'IRESC (Integrated Risk, Environment & Safety Consultants)',
 2018,
@@ -130,7 +156,7 @@ tmpExpStore.AddItems('Develop console applications using C# to communicate with 
 tmpExpStore.AddItems('Develop desktop application, using Java Swing, to be installed in single board computers to standardize QA reporting and photographing of defects');
 tmpExpStore.AddItems('Front end web development for mobile app (WeChat)');
 PExps.push(tmpExpStore);
-
+// other technical experiences
 tmpExpStore = new Experience('Test Engineer','Ngai Kwong Industrial Ltd.',2011,2015, '' );
 tmpExpStore.AddItems('Develop test plans for QC’s department and procedures for new products and ensure that they conform to product spec and safety standards');
 tmpExpStore.AddItems('Oversee tests performed by other engineers');
@@ -151,9 +177,9 @@ Exps.push(tmpExpStore);
 
 for (var i = 0; i < PExps.length; i++) {
   var str = PExps[i].CreateHTML();
-  $('#progExpHolder').append(str);
+  $('.progExpHolder').append(str);
 }
 
 for (var i = 0; i < Exps.length; i++) {
-  $('#ExpHolder').append(Exps[i].CreateHTML());
+  $('.ExpHolder').append(Exps[i].CreateHTML());
 }
