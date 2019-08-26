@@ -142,8 +142,9 @@ var tmpExpStore = new Experience('Software Engineer',
 2018,
 'Present',
 'This company specialize in risk analysis for the petroleum industry using a variety of commercial and in-house developed software');
-tmpExpStore.AddItems('Develop and maintain desktop applications using C# and OpenGL to facilitate consultants’ risk analysis and visualization')  ;
+tmpExpStore.AddItems('Develop and maintain desktop applications using C# and OpenGL to facilitate safety consultants’ risk analysis and visualization')  ;
 tmpExpStore.AddItems('Oversee coding projects developed using C# and MATLAB by interns and ensure proper coding practices are utilized');
+tmpExpStore.AddItems("Participate in the development of an ASP.Net MVC web-app that facilitates safety consultants’ onsite data entry");
 tmpExpStore.AddItems(['Suggested an algorithm for fire risk analysis that was implemented in an intern’s project',
                       '<i class="fa fa-calculator fa-lg"  style="margin-left: 1rem;" aria-hidden="true"></i>']);
 var PExps = [tmpExpStore];
